@@ -23,7 +23,7 @@ export function ProductCard({ product }: { product: Product }) {
     <>
       <div 
         onClick={() => setIsOpen(true)}
-        className="group cursor-pointer relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-[var(--accent-red)] transition-all duration-300 flex flex-col transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-[var(--accent-red)]/20"
+        className="group cursor-pointer relative overflow-hidden rounded-2xl bg-[var(--text-primary)]/5 backdrop-blur-md border border-[var(--text-primary)]/10 hover:border-[var(--accent-red)] transition-all duration-300 flex flex-col transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-[var(--accent-red)]/20"
       >
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-black/40">
           <Image
@@ -40,13 +40,13 @@ export function ProductCard({ product }: { product: Product }) {
             <div className="inline-block px-3 py-1 bg-[var(--accent-red)]/10 text-[var(--accent-red)] text-xs uppercase tracking-widest font-bold rounded-md mb-3 border border-[var(--accent-red)]/20">
               {product.category}
             </div>
-            <h3 className="font-clash text-xl md:text-2xl font-bold text-white mb-2 line-clamp-2 leading-tight tracking-tight group-hover:text-[var(--accent-red)] transition-colors duration-300">
+            <h3 className="font-clash text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-2 line-clamp-2 leading-tight tracking-tight group-hover:text-[var(--accent-red)] transition-colors duration-300">
               {product.name}
             </h3>
           </div>
-          <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/10">
-            <span className="text-sm font-medium text-white/60">Price:</span>
-            <span className="text-2xl font-clash font-bold text-white bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Rs. {product.price}</span>
+          <div className="flex items-center gap-2 mt-4 pt-4 border-t border-[var(--text-primary)]/10">
+            <span className="text-sm font-medium text-[var(--text-primary)]/60">Price:</span>
+            <span className="text-2xl font-clash font-extrabold text-[var(--text-primary)]">Rs. {product.price}</span>
           </div>
         </div>
       </div>
