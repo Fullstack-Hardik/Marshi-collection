@@ -39,12 +39,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const productRoutes = products.map(product => ({
-    url: `${baseUrl}/products/${product.category}#${product.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes];
+  return [...staticRoutes, ...categoryRoutes];
 }
