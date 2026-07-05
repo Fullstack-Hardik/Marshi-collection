@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --bg-base: #E4E2DD;
+  --text-primary: #1E1E1E;
+  --accent-red: #DB4A2B;
+  --warm-orange: #F8A348;
+  --soft-pink: #FF89A9;
+  --bg-campaign: #D9D6D0;
+}
+
+@theme inline {
+  --color-base: var(--bg-base);
+  --color-primary: var(--text-primary);
+  --color-accent: var(--accent-red);
+  --color-warm: var(--warm-orange);
+  --color-soft: var(--soft-pink);
+  --color-campaign: var(--bg-campaign);
+  --font-clash: 'Clash Display', sans-serif;
+  --font-satoshi: 'Satoshi', sans-serif;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-satoshi);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-clash {
+  font-family: var(--font-clash);
+}
+
+::selection {
+  background: var(--accent-red);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes blobPulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1) translate(0px, 0px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05) translate(20px, -20px);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1) translate(0px, 0px);
+  }
+}
+
+.animate-blob-pulse {
+  animation: blobPulse 12s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
