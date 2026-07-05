@@ -2,9 +2,15 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Product } from "@/data/products";
+import { createPortal } from "react-dom";
 
 export function ProductCard({ product }: { product: Product }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Prevent scrolling when modal is open
   useEffect(() => {
@@ -52,8 +58,8 @@ export function ProductCard({ product }: { product: Product }) {
       </div>
 
       {/* Details Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+      {mounted && isOpen && createPortal(
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" style={{ isolation: 'isolate' }}>
           <div 
             className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
             onClick={() => setIsOpen(false)}
@@ -115,7 +121,8 @@ export function ProductCard({ product }: { product: Product }) {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

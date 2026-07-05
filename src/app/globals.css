@@ -20,11 +20,12 @@
   --font-satoshi: 'Satoshi', sans-serif;
 }
 
-body {
+html, body {
   background: var(--bg-base);
   color: var(--text-primary);
   font-family: var(--font-satoshi);
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6, .font-clash {
