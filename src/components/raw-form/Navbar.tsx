@@ -43,13 +43,10 @@ export function Navbar() {
           <button className="hover:text-[var(--accent-red)] transition-colors p-2 hover:bg-[var(--text-primary)]/5 rounded-full">
             <Search size={22} strokeWidth={1.5} />
           </button>
-          <button className="hover:text-[var(--accent-red)] transition-colors p-2 hover:bg-[var(--text-primary)]/5 rounded-full relative">
-            <ShoppingBag size={22} strokeWidth={1.5} />
-            <span className="absolute top-1 right-1 w-2 h-2 bg-[var(--accent-red)] rounded-full border-2 border-[var(--bg-base)]"></span>
-          </button>
-          {/* Mobile Menu Toggle */}
+          
+          {/* Menu Toggle */}
           <button 
-            className="lg:hidden hover:text-[var(--accent-red)] transition-colors p-2 hover:bg-[var(--text-primary)]/5 rounded-full"
+            className="hover:text-[var(--accent-red)] transition-colors p-2 hover:bg-[var(--text-primary)]/5 rounded-full"
             onClick={() => setIsSidebarOpen(true)}
           >
             <Menu size={24} strokeWidth={1.5} />
@@ -57,7 +54,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Sidebar Overlay */}
+      {/* Sidebar Overlay */}
       {isSidebarOpen && (
         <div className="fixed inset-0 z-[60] flex">
           {/* Backdrop */}

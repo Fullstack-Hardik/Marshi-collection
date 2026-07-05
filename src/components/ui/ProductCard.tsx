@@ -37,14 +37,17 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
         <div className="p-5 flex-1 flex flex-col justify-between">
           <div>
-            <div className="text-xs text-[var(--accent-red)] uppercase tracking-widest font-bold mb-2">
+            <div className="inline-block px-3 py-1 bg-[var(--accent-red)]/10 text-[var(--accent-red)] text-xs uppercase tracking-widest font-bold rounded-md mb-3 border border-[var(--accent-red)]/20">
               {product.category}
             </div>
-            <h3 className="text-lg font-medium text-white/90 mb-2 line-clamp-2 leading-tight">
+            <h3 className="font-clash text-xl md:text-2xl font-bold text-white mb-2 line-clamp-2 leading-tight tracking-tight group-hover:text-[var(--accent-red)] transition-colors duration-300">
               {product.name}
             </h3>
           </div>
-          <div className="text-xl font-bold text-white mt-2">Rs. {product.price}</div>
+          <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/10">
+            <span className="text-sm font-medium text-white/60">Price:</span>
+            <span className="text-2xl font-clash font-bold text-white bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Rs. {product.price}</span>
+          </div>
         </div>
       </div>
 

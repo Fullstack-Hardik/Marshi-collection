@@ -1,62 +1,34 @@
 "use client";
-import Image from "next/image";
-
+import React from "react";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import React from "react";
-import {
-  Autoplay,
-  EffectCoverflow,
-  Navigation,
-  Pagination,
-} from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+
 import "swiper/css";
+import "swiper/css/navigation";
 
 import { cn } from "@/lib/utils";
 import { Product } from "@/data/products";
+import { ProductCard } from "../ui/ProductCard";
 
 interface CarouselProps {
   products: Product[];
   className?: string;
-  showPagination?: boolean;
-  showNavigation?: boolean;
-  loop?: boolean;
-  autoplay?: boolean;
-  spaceBetween?: number;
 }
 
-export function Carousel({
-  products,
-  className,
-  showPagination = true,
-  showNavigation = true,
-  loop = true,
-  autoplay = true,
-  spaceBetween = 40,
-}: CarouselProps) {
+export function Carousel({ products, className }: CarouselProps) {
   const css = `
-  .Carousal_001 {
-    padding-bottom: 50px !important;
-  }
   .swiper-button-next, .swiper-button-prev {
-    color: var(--text-primary) !important;
-  }
-  .swiper-pagination-bullet-active {
-    background: var(--accent-red) !important;
+    display: none !important;
   }
   `;
+  
   return (
     <motion.div
       initial={{ opacity: 0, translateY: 20 }}
       animate={{ opacity: 1, translateY: 0 }}
-      transition={{
-        duration: 0.3,
-        delay: 0.5,
-      }}
+      transition={{ duration: 0.5, delay: 0.2 }}
       className={cn("w-full relative py-12 px-6 overflow-hidden", className)}
     >
       <style>{css}</style>
@@ -65,78 +37,45 @@ export function Carousel({
         <h2 className="font-clash font-bold uppercase text-[6vw] md:text-[4vw] tracking-tighter leading-none text-[var(--text-primary)]">
           Curated <span className="text-[var(--accent-red)]">Selection</span>
         </h2>
+        
+        {/* Custom Navigation */}
+        <div className="flex gap-4">
+          <button className="swiper-button-prev-custom w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-[var(--accent-red)] hover:border-[var(--accent-red)] transition-colors text-white">
+            <ChevronLeftIcon className="h-6 w-6" />
+          </button>
+          <button className="swiper-button-next-custom w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-[var(--accent-red)] hover:border-[var(--accent-red)] transition-colors text-white">
+            <ChevronRightIcon className="h-6 w-6" />
+          </button>
+        </div>
       </div>
 
       <Swiper
-        spaceBetween={spaceBetween}
-        autoplay={
-          autoplay
-            ? {
-                delay: 2500,
-                disableOnInteraction: false,
-              }
-            : false
-        }
-        effect="coverflow"
-        grabCursor={true}
-        centeredSlides={true}
-        loop={loop}
-        slidesPerView={1.5}
+        spaceBetween={24}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        loop={true}
+        speed={800}
+        slidesPerView={1.2}
         breakpoints={{
-          768: { slidesPerView: 2.5 },
-          1024: { slidesPerView: 3.5 }
+          640: { slidesPerView: 2.2 },
+          1024: { slidesPerView: 3.2 },
+          1280: { slidesPerView: 4 },
         }}
-        coverflowEffect={{
-          rotate: 0,
-          slideShadows: false,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
+        navigation={{
+          nextEl: ".swiper-button-next-custom",
+          prevEl: ".swiper-button-prev-custom",
         }}
-        pagination={
-          showPagination
-            ? {
-                clickable: true,
-              }
-            : false
-        }
-        navigation={
-          showNavigation
-            ? {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }
-            : false
-        }
-        className="Carousal_001 w-full max-w-7xl mx-auto"
-        modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
+        className="w-full max-w-7xl mx-auto !overflow-visible"
+        modules={[Autoplay, Navigation]}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id} className="!h-[450px] w-full group relative cursor-pointer overflow-hidden border border-[var(--text-primary)]/20">
-            <Image
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              src={product.image}
-              alt={product.name}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--text-primary)] to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
-            <div className="absolute bottom-0 left-0 p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 w-full text-[var(--bg-base)]">
-              <div className="text-xs font-satoshi uppercase tracking-widest text-[var(--accent-red)] mb-2">{product.category}</div>
-              <h3 className="font-clash font-bold text-2xl uppercase">{product.name}</h3>
-              <p className="font-satoshi font-medium mt-2">LKR {product.price}</p>
-            </div>
+          <SwiperSlide key={product.id} className="h-auto">
+            <ProductCard product={product} />
           </SwiperSlide>
         ))}
-        {showNavigation && (
-          <div>
-            <div className="swiper-button-next after:hidden bg-[var(--bg-base)] w-12 h-12 rounded-full border border-[var(--text-primary)] flex items-center justify-center hover:bg-[var(--text-primary)] hover:text-[var(--bg-base)] transition-colors shadow-lg !right-4">
-              <ChevronRightIcon className="h-6 w-6" />
-            </div>
-            <div className="swiper-button-prev after:hidden bg-[var(--bg-base)] w-12 h-12 rounded-full border border-[var(--text-primary)] flex items-center justify-center hover:bg-[var(--text-primary)] hover:text-[var(--bg-base)] transition-colors shadow-lg !left-4">
-              <ChevronLeftIcon className="h-6 w-6" />
-            </div>
-          </div>
-        )}
       </Swiper>
     </motion.div>
   );
