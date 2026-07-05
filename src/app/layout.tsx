@@ -15,7 +15,35 @@ export const metadata: Metadata = {
     template: "%s | Marshi Collection",
   },
   description: "Shop premium Ladies Dresses, Gents Wear, Kids Clothing, Custom Gifts, and Abayas online in Pakistan at Marshi Collection. Quality fashion with nationwide delivery.",
-  keywords: ["Pakistani dresses online", "buy gifts online Pakistan", "custom clothing", "custom gifts Pakistan", "kids clothing brand Pakistan", "ladies suits online shopping", "Marshi Collection", "premium fashion Pakistan"],
+  keywords: [
+    "Pakistani dresses online", "buy gifts online Pakistan", "custom clothing", 
+    "custom gifts Pakistan", "kids clothing brand Pakistan", "ladies suits online shopping", 
+    "Marshi Collection", "premium fashion Pakistan", "Abaya online Pakistan", 
+    "Hijab online shopping", "mens t-shirts online", "customized jewelry Pakistan",
+    "cash on delivery fashion Pakistan", "buy clothes online Karachi", "Lahore fashion store"
+  ],
+  authors: [{ name: "Areesha Waheed" }],
+  creator: "Marshi Collection",
+  publisher: "Marshi Collection",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  verification: {
+    google: "G-MCfspvx9O7zZA50yCn9vyam-q_GCguhEWLJwNp9vw",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
