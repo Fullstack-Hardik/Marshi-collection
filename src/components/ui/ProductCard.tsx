@@ -40,18 +40,18 @@ export function ProductCard({ product }: { product: Product }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between">
-          <div>
+        <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between items-center text-center">
+          <div className="flex flex-col items-center">
             <div className="inline-block px-2 py-1 sm:px-3 sm:py-1 bg-[var(--accent-red)]/10 text-[var(--accent-red)] text-[10px] sm:text-xs uppercase tracking-widest font-bold rounded-md mb-2 sm:mb-3 border border-[var(--accent-red)]/20">
               {product.category}
             </div>
-            <h3 className="font-clash text-base sm:text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-1 sm:mb-2 line-clamp-2 leading-tight tracking-tight group-hover:text-[var(--accent-red)] transition-colors duration-300">
+            <h3 className="font-clash text-sm sm:text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-1 sm:mb-2 line-clamp-2 leading-tight tracking-tight group-hover:text-[var(--accent-red)] transition-colors duration-300">
               {product.name}
             </h3>
           </div>
-          <div className="flex items-center gap-1 sm:gap-2 mt-2 sm:mt-4 pt-2 sm:pt-4 border-t border-[var(--text-primary)]/10">
-            <span className="text-xs sm:text-sm font-medium text-[var(--text-primary)]/60">Price:</span>
-            <span className="text-lg sm:text-2xl font-clash font-extrabold text-[var(--text-primary)]">PKR {product.price}</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mt-2 sm:mt-4 pt-2 sm:pt-4 border-t border-[var(--text-primary)]/10 w-full">
+            <span className="text-[10px] sm:text-sm font-medium text-[var(--text-primary)]/60">Price:</span>
+            <span className="text-base sm:text-2xl font-clash font-extrabold text-[var(--text-primary)]">PKR {product.price}</span>
           </div>
         </div>
       </div>

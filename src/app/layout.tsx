@@ -13,17 +13,22 @@ import { Footer } from "@/components/raw-form/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://marshicollection.com"),
   title: {
-    default: "Marshi Collection | Premium Fashion, Abayas & Custom Apparel Pakistan",
+    default: "Marshi Collection | Premium Fashion, Gifts & Abayas Pakistan",
     template: "%s | Marshi Collection",
   },
-  description: "Your complete fashion destination in Pakistan. Shop premium Ladies Dresses, Abayas, Kids Wear, and Custom Apparel online. Quality materials with nationwide delivery.",
-  keywords: ["Pakistani dresses online", "buy abaya online Pakistan", "custom t-shirts Pakistan", "kids clothing brand Pakistan", "ladies suits online shopping", "Marshi Collection"],
+  description: "Shop premium Ladies Dresses, Gents Wear, Kids Clothing, Custom Gifts, and Abayas online in Pakistan at Marshi Collection. Quality fashion with nationwide delivery.",
+  keywords: ["Pakistani dresses online", "buy gifts online Pakistan", "custom clothing", "custom gifts Pakistan", "kids clothing brand Pakistan", "ladies suits online shopping", "Marshi Collection", "premium fashion Pakistan"],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "en_PK",
     url: "https://marshicollection.com",
-    title: "Marshi Collection | Premium Fashion & Custom Apparel",
-    description: "Shop premium Ladies Dresses, Abayas, Kids Wear, and Custom Apparel online in Pakistan.",
+    title: "Marshi Collection | Premium Fashion, Gifts & Custom Apparel",
+    description: "Shop premium Ladies Dresses, Gents Wear, Kids Clothing, Custom Gifts, and Abayas online in Pakistan.",
     siteName: "Marshi Collection",
   },
   twitter: {
