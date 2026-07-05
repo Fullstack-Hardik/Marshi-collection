@@ -21,6 +21,10 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex gap-10 font-satoshi font-bold text-[13px] tracking-[0.15em] uppercase">
+          <Link href="/" className="relative group overflow-hidden">
+            <span className="group-hover:-translate-y-full transition-transform duration-300 inline-block">Home</span>
+            <span className="absolute left-0 top-full group-hover:-translate-y-full transition-transform duration-300 inline-block text-[var(--accent-red)]">Home</span>
+          </Link>
           <Link href="/products" className="relative group overflow-hidden">
             <span className="group-hover:-translate-y-full transition-transform duration-300 inline-block">Products</span>
             <span className="absolute left-0 top-full group-hover:-translate-y-full transition-transform duration-300 inline-block text-[var(--accent-red)]">Products</span>

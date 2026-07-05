@@ -52,12 +52,12 @@ export function Carousel({ products, className }: CarouselProps) {
       <Swiper
         spaceBetween={24}
         autoplay={{
-          delay: 3000,
+          delay: 1500,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
         loop={true}
-        speed={800}
+        speed={500}
         slidesPerView={1.2}
         breakpoints={{
           640: { slidesPerView: 2.2 },

@@ -9,14 +9,14 @@ export function RandomProductGrid({ products }: { products: Product[] }) {
   useEffect(() => {
     // Smart random shifting of products on client-side
     const shuffled = [...products].sort(() => 0.5 - Math.random());
-    setDisplayProducts(shuffled.slice(0, 8));
+    setDisplayProducts(shuffled.slice(0, 4));
   }, [products]);
 
   // Prevent hydration mismatch by showing a skeleton or default grid initially
   if (displayProducts.length === 0) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {products.slice(0, 8).map((product) => (
+        {products.slice(0, 4).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>

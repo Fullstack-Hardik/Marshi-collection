@@ -16,7 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
 
-  const whatsappMessage = `Hi, I'm interested in ordering:\n*${product.name}*\nPrice: Rs. ${product.price}${product.details ? `\n\nDetails: ${product.details}` : ""}`;
+  const whatsappMessage = `Hi, I'm interested in ordering:\n*${product.name}*\nPrice: PKR ${product.price}${product.details ? `\n\nDetails: ${product.details}` : ""}`;
   const whatsappUrl = `https://wa.me/923108736356?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -46,7 +46,7 @@ export function ProductCard({ product }: { product: Product }) {
           </div>
           <div className="flex items-center gap-2 mt-4 pt-4 border-t border-[var(--text-primary)]/10">
             <span className="text-sm font-medium text-[var(--text-primary)]/60">Price:</span>
-            <span className="text-2xl font-clash font-extrabold text-[var(--text-primary)]">Rs. {product.price}</span>
+            <span className="text-2xl font-clash font-extrabold text-[var(--text-primary)]">PKR {product.price}</span>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ export function ProductCard({ product }: { product: Product }) {
                 {product.name}
               </h2>
               <div className="text-3xl font-bold text-white mb-6">
-                Rs. {product.price}
+                PKR {product.price}
               </div>
               
               <div className="prose prose-invert mb-8">

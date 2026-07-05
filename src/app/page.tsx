@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, ArrowRight, Plus } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Plus, Sparkles, Star } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AnimatedButton } from '@/components/raw-form/AnimatedButton';
@@ -64,28 +64,52 @@ export default function Home() {
         <RandomProductGrid products={products} />
       </section>
 
-      {/* Category Divider */}
-      <section className="w-full py-[128px] relative overflow-hidden bg-[var(--bg-base)] flex items-center justify-end px-6 md:px-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--warm-orange)_0%,transparent_70%)] opacity-20" />
-        <h2 className="relative z-10 font-clash font-bold uppercase text-[12vw] tracking-tighter opacity-90 leading-none">
-          Essentials
-        </h2>
+      {/* Benefits Section */}
+      <section className="bg-[var(--text-primary)]/5 w-full py-24 px-6 md:px-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {[
+            { title: "Premium Quality", desc: "Handpicked fabrics and materials for ultimate comfort." },
+            { title: "Custom Designs", desc: "Personalized printing for your special occasions." },
+            { title: "Nationwide Delivery", desc: "Fast and reliable shipping across Pakistan." },
+            { title: "Secure Ordering", desc: "Easy and safe checkout via WhatsApp." }
+          ].map((benefit, idx) => (
+            <div key={idx} className="flex flex-col items-center text-center p-8 border border-[var(--text-primary)]/10 rounded-3xl hover:border-[var(--accent-red)] transition-colors bg-[var(--bg-base)]">
+              <div className="w-16 h-16 rounded-full bg-[var(--accent-red)]/10 flex items-center justify-center mb-6 text-[var(--accent-red)]">
+                <Sparkles size={32} />
+              </div>
+              <h3 className="font-clash font-bold text-xl uppercase mb-3">{benefit.title}</h3>
+              <p className="font-satoshi opacity-80">{benefit.desc}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Campaign Block */}
-      <section className="bg-[var(--bg-campaign)] w-full py-24 px-6 md:px-12 animate-slide-up" style={{ animationDelay: '0.6s' }}>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-8">
-            <h2 className="font-clash font-bold text-[6vw] leading-[0.9] uppercase">
-              The Architecture<br />Of Style.
+      {/* Testimonials Section */}
+      <section className="w-full py-24 px-6 md:px-12 animate-slide-up" style={{ animationDelay: '0.5s' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center mb-16 text-center">
+            <h2 className="font-clash font-bold uppercase text-[8vw] md:text-[5vw] tracking-tighter leading-none text-[var(--text-primary)]">
+              Client <span className="text-[var(--accent-red)]">Reviews</span>
             </h2>
+            <p className="font-satoshi text-xl opacity-80 mt-4 max-w-2xl">See what our beautiful customers have to say about Marshi Collection.</p>
           </div>
-          <div className="md:col-span-4 flex flex-col justify-end">
-            {['Ladies Collection', 'Kids Apparel', 'Abaya Exclusive'].map((campaign, idx) => (
-              <div key={idx} className="border-t border-[var(--text-primary)] border-opacity-20 py-6 flex justify-between items-center group cursor-pointer">
-                <span className="font-satoshi font-bold text-lg">{campaign}</span>
-                <div className="w-10 h-10 rounded-full border border-[var(--text-primary)] flex items-center justify-center group-hover:bg-[var(--text-primary)] group-hover:text-[var(--bg-base)] transition-colors">
-                  <ArrowUpRight size={18} />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: "Fatima R.", text: "The quality of the Abaya is incredible! It fits perfectly and the fabric feels so premium. Will definitely order again." },
+              { name: "Ahmed S.", text: "Ordered custom t-shirts for 14th August for my kids. The print quality is fantastic and delivery was super fast!" },
+              { name: "Zainab M.", text: "I love the customized name necklace. It looks so elegant and hasn't faded at all. Excellent customer service via WhatsApp." }
+            ].map((review, idx) => (
+              <div key={idx} className="p-8 rounded-3xl bg-[var(--text-primary)]/5 border border-[var(--text-primary)]/10 relative">
+                <div className="flex gap-1 text-[var(--accent-red)] mb-6">
+                  {[1,2,3,4,5].map(star => <Star key={star} size={20} fill="currentColor" />)}
+                </div>
+                <p className="font-satoshi text-lg opacity-90 mb-8 leading-relaxed italic">"{review.text}"</p>
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-12 h-12 rounded-full bg-[var(--accent-red)] flex items-center justify-center text-white font-bold font-clash text-xl">
+                    {review.name.charAt(0)}
+                  </div>
+                  <span className="font-clash font-bold uppercase text-lg">{review.name}</span>
                 </div>
               </div>
             ))}
