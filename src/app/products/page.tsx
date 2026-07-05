@@ -29,8 +29,8 @@ export default function ProductsPage() {
       </h1>
       
       {/* Category Navigation (Sticky) */}
-      <div className="sticky top-20 z-40 bg-[var(--bg-base)]/90 backdrop-blur-md py-4 mb-16 border-b border-[var(--text-primary)]/10">
-        <div className="flex flex-wrap gap-2 sm:gap-4 justify-center px-4">
+      <div className="sticky top-20 z-40 bg-[var(--bg-base)]/90 backdrop-blur-md py-4 mb-16 border-b border-[var(--text-primary)]/10 overflow-x-auto whitespace-nowrap hide-scrollbar">
+        <div className="flex gap-2 sm:gap-4 px-4 w-max mx-auto md:w-auto md:mx-0 md:justify-center">
           {CATEGORIES.map((cat) => (
             <a 
               key={cat} 
