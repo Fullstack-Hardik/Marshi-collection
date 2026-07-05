@@ -13,6 +13,22 @@ import { RandomProductGrid } from '@/components/ui/RandomProductGrid';
 export default function Home() {
   return (
     <div className="relative w-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Marshi Collection",
+            "url": "https://marshicollection.vercel.app",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://marshicollection.vercel.app/products?search={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
 
       {/* Hero Section */}
       <section className="relative min-h-screen pt-32 pb-16 w-full flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 overflow-hidden animate-slide-up">
@@ -38,7 +54,7 @@ export default function Home() {
 
         {/* Hero Image Block */}
         <div className="relative z-10 w-full lg:w-5/12 h-[50vh] lg:h-[75vh] mt-12 lg:mt-0 overflow-hidden shadow-2xl group border-2 border-[var(--text-primary)]/10">
-           <Image fill src="/images/products/heart-tee-bundle.png" alt="Marshi Collection - Premium Fashion" className="object-cover object-center transition-all duration-1000 group-hover:scale-105" />
+           <Image fill priority sizes="(max-width: 1024px) 100vw, 40vw" src="/images/products/heart-tee-bundle.webp" alt="Marshi Collection - Premium Fashion" className="object-cover object-center transition-all duration-1000 group-hover:scale-105" />
            <div className="absolute inset-0 bg-gradient-to-t from-[var(--text-primary)]/40 to-transparent opacity-50 mix-blend-multiply" />
         </div>
       </section>

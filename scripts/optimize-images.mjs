@@ -5,7 +5,7 @@ import sharp from 'sharp';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const IMAGES_DIR = path.join(PUBLIC_DIR, 'images');
 
-const getAllFiles = (dir, extn, files, result, regex) => {
+const getAllFiles = (dir, extn, files = null, result = null, regex) => {
   files = files || fs.readdirSync(dir);
   result = result || [];
 
@@ -13,7 +13,7 @@ const getAllFiles = (dir, extn, files, result, regex) => {
     let file = path.join(dir, files[i]);
     if (fs.statSync(file).isDirectory()) {
       try {
-        result = getAllFiles(file, extn, fs.readdirSync(file), result, regex);
+        result = getAllFiles(file, extn, null, result, regex);
       } catch (error) {
         continue;
       }
@@ -33,7 +33,7 @@ const optimizeImages = async () => {
     return;
   }
 
-  const images = getAllFiles(IMAGES_DIR, '', [], [], /\.(jpg|jpeg|png)$/i);
+  const images = getAllFiles(IMAGES_DIR, '', null, null, /\.(jpg|jpeg|png)$/i);
   console.log(`Found ${images.length} images to process.`);
 
   let processedCount = 0;

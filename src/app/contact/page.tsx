@@ -10,8 +10,9 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    alert("Message sent successfully!");
+    const text = `*New Contact Message*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Message:* ${formData.message}`;
+    const whatsappUrl = `https://wa.me/923108736356?text=${text}`;
+    window.open(whatsappUrl, '_blank');
     setFormData({ name: '', email: '', message: '' });
   };
 

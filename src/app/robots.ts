@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/'],
     },
-    sitemap: 'https://marshicollection.com/sitemap.xml',
+    sitemap: 'https://marshicollection.vercel.app/sitemap.xml',
   };
 }

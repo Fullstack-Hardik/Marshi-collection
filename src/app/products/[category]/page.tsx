@@ -8,10 +8,15 @@ interface CategoryPageProps {
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const resolvedParams = await params;
-  const categoryTitle = resolvedParams.category.charAt(0).toUpperCase() + resolvedParams.category.slice(1);
+  const category = resolvedParams.category;
+  const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+  
   return {
-    title: `${categoryTitle} Collection | Marshi Collection`,
-    description: `Explore beautiful ${categoryTitle.toLowerCase()} collection with latest fashion trends.`,
+    title: `${categoryTitle} Online Pakistan | Buy ${categoryTitle} & More – Marshi`,
+    description: `Shop premium ${category} online in Pakistan. Elegant designs, quality fabric, nationwide delivery with cash on delivery available.`,
+    alternates: {
+      canonical: `https://marshicollection.vercel.app/products/${category}`,
+    },
   };
 }
 
@@ -27,9 +32,24 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const categoryTitle = resolvedParams.category.charAt(0).toUpperCase() + resolvedParams.category.slice(1);
 
   return (
-    <div className="min-h-screen py-20 px-4 max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold text-center mb-16 capitalize bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent">
-        {categoryTitle} Collection
+    <div className="min-h-screen pt-32 pb-20 px-4 max-w-7xl mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://marshicollection.vercel.app/"},
+              {"@type": "ListItem", "position": 2, "name": "Products", "item": "https://marshicollection.vercel.app/products"},
+              {"@type": "ListItem", "position": 3, "name": categoryTitle, "item": `https://marshicollection.vercel.app/products/${resolvedParams.category}`}
+            ]
+          })
+        }}
+      />
+      
+      <h1 className="text-4xl md:text-6xl font-clash font-bold text-center mb-16 uppercase tracking-tighter text-[var(--text-primary)]">
+        {categoryTitle} <span className="text-[var(--accent-red)]">Collection</span>
       </h1>
       
       {categoryProducts.length > 0 ? (

@@ -27,6 +27,44 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": product.name,
+              "image": `https://marshicollection.vercel.app${product.image}`,
+              "description": product.details || `${product.name} from Marshi Collection.`,
+              "brand": { "@type": "Brand", "name": "Marshi Collection" },
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "PKR",
+                "price": product.price,
+                "availability": "https://schema.org/InStock",
+                "url": `https://marshicollection.vercel.app/products/${product.category}#${product.id}`
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Is Cash on Delivery available?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Yes, Marshi Collection offers Cash on Delivery across Pakistan including Karachi, Lahore, Islamabad, Rawalpindi and Faisalabad." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long does delivery take?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Standard delivery takes 3-5 working days across Pakistan." }
+                }
+              ]
+            }
+          ])
+        }}
+      />
       <div 
         onClick={() => setIsOpen(true)}
         className="group cursor-pointer relative overflow-hidden rounded-2xl bg-[var(--bg-base)] border border-[var(--text-primary)]/10 hover:border-[var(--accent-red)] transition-all duration-300 flex flex-col shadow-sm hover:shadow-lg"
@@ -37,7 +75,7 @@ export function ProductCard({ product }: { product: Product }) {
             alt={`${product.name} - ${product.category} at Marshi Collection`}
             fill
             className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
         </div>
         <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">

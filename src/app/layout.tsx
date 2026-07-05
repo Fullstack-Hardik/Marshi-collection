@@ -3,15 +3,13 @@ import type { Metadata, Viewport } from "next";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 import "./globals.css";
 import { Navbar } from "@/components/raw-form/Navbar";
 import { Footer } from "@/components/raw-form/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://marshicollection.com"),
+  metadataBase: new URL("https://marshicollection.vercel.app"),
   title: {
     default: "Marshi Collection | Premium Fashion, Gifts & Abayas Pakistan",
     template: "%s | Marshi Collection",
@@ -26,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_PK",
-    url: "https://marshicollection.com",
+    url: "https://marshicollection.vercel.app",
     title: "Marshi Collection | Premium Fashion, Gifts & Custom Apparel",
     description: "Shop premium Ladies Dresses, Gents Wear, Kids Clothing, Custom Gifts, and Abayas online in Pakistan.",
     siteName: "Marshi Collection",
@@ -48,36 +46,50 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FashionStore",
-              "name": "Marshi Collection",
-              "image": "https://marshicollection.com/logo.png",
-              "telephone": "+923108736356",
-              "url": "https://marshicollection.com",
-              "owner": {
-                "@type": "Person",
-                "name": "Areesha Waheed"
-              },
-              "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "PK"
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Marshi Collection",
+                "url": "https://marshicollection.vercel.app",
+                "logo": "https://marshicollection.vercel.app/logo.png",
+                "sameAs": [
+                  "https://www.instagram.com/marshicollection",
+                  "https://www.facebook.com/marshicollection",
+                  "https://www.pinterest.com/marshicollection"
                 ],
-                "opens": "00:00",
-                "closes": "23:59"
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+92-310-8736356",
+                  "contactType": "customer service",
+                  "areaServed": "PK"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "FashionStore",
+                "name": "Marshi Collection",
+                "image": "https://marshicollection.vercel.app/logo.png",
+                "telephone": "+92-310-8736356",
+                "url": "https://marshicollection.vercel.app",
+                "owner": {
+                  "@type": "Person",
+                  "name": "Areesha Waheed"
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "PK"
+                },
+                "openingHoursSpecification": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+                  ],
+                  "opens": "00:00",
+                  "closes": "23:59"
+                }
               }
-            })
+            ])
           }}
         />
         <Navbar />
