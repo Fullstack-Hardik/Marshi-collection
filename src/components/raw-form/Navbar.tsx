@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Search, ShoppingBag, Sparkles, Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,12 +12,10 @@ export function Navbar() {
     <>
       <nav className="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-[var(--bg-base)]/80 backdrop-blur-xl border-b border-[var(--text-primary)]/10 text-[var(--text-primary)] transition-all duration-300">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity group">
-          <div className="bg-[var(--text-primary)] text-[var(--bg-base)] p-2 rounded-sm group-hover:bg-[var(--accent-red)] transition-colors">
-            {/* Logo fallback icon since image can't be fetched */}
-            <Sparkles size={20} className="hidden" />
-            <img src="/logo.png" alt="Marshi Collection" className="h-8 w-auto object-contain dark:invert hidden" onError={(e) => { e.currentTarget.classList.add('hidden'); e.currentTarget.previousElementSibling?.classList.remove('hidden') }} />
+          <div className="relative w-12 h-12 bg-white rounded-full overflow-hidden shadow-lg border border-[var(--accent-red)]/20 group-hover:scale-105 transition-transform">
+            <Image src="/logo.png" alt="Marshi Collection" fill className="object-cover" />
           </div>
-          <span className="font-clash font-bold uppercase text-xl md:text-2xl tracking-tighter">Marshi Collection</span>
+          <span className="font-clash font-bold uppercase text-xl md:text-2xl tracking-tighter text-[var(--text-primary)]">Marshi Collection</span>
         </Link>
 
         {/* Desktop Nav */}

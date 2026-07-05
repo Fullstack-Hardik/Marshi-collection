@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -7,8 +8,10 @@ export function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10 mb-24 max-w-7xl mx-auto">
         <div className="md:col-span-1">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/logo.png" alt="Marshi Collection" className="h-10 w-auto object-contain dark:invert" />
-            <div className="font-clash font-bold uppercase text-3xl tracking-tighter">Marshi Collection</div>
+            <div className="relative w-12 h-12 bg-white rounded-full overflow-hidden shadow-lg border border-[var(--accent-red)]/20">
+              <Image src="/logo.png" alt="Marshi Collection" fill className="object-cover" />
+            </div>
+            <div className="font-clash font-bold uppercase text-2xl tracking-tighter">Marshi Collection</div>
           </div>
           <p className="font-satoshi opacity-70">Your Complete Fashion Destination.</p>
         </div>

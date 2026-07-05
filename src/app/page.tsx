@@ -64,6 +64,31 @@ export default function Home() {
         <RandomProductGrid products={products} />
       </section>
 
+      {/* Campaign Block / Collections */}
+      <section className="bg-[var(--bg-base)] w-full py-24 px-6 md:px-12 animate-slide-up border-y border-[var(--text-primary)]/10" style={{ animationDelay: '0.35s' }}>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 max-w-7xl mx-auto">
+          <div className="md:col-span-8 flex flex-col justify-center">
+            <h2 className="font-clash font-bold text-[10vw] md:text-[6vw] leading-[0.9] uppercase text-[var(--text-primary)]">
+              The Architecture<br />Of <span className="text-[var(--accent-red)]">Style.</span>
+            </h2>
+          </div>
+          <div className="md:col-span-4 flex flex-col justify-end">
+            {[
+              { name: 'Ladies Collection', link: '/products' },
+              { name: 'Kids Apparel', link: '/products' },
+              { name: 'Abaya Exclusive', link: '/products' }
+            ].map((campaign, idx) => (
+              <Link href={campaign.link} key={idx} className="border-t border-[var(--text-primary)]/20 py-6 flex justify-between items-center group cursor-pointer hover:border-[var(--accent-red)] transition-colors">
+                <span className="font-satoshi font-bold text-xl uppercase group-hover:text-[var(--accent-red)] transition-colors">{campaign.name}</span>
+                <div className="w-10 h-10 rounded-full border border-[var(--text-primary)] flex items-center justify-center group-hover:border-[var(--accent-red)] group-hover:bg-[var(--accent-red)] group-hover:text-white transition-all transform group-hover:rotate-45">
+                  <ArrowUpRight size={18} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="bg-[var(--text-primary)]/5 w-full py-24 px-6 md:px-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
