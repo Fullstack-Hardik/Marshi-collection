@@ -2,11 +2,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import { cn } from "@/lib/utils";
 import { Product } from "@/data/products";
@@ -68,8 +69,12 @@ export function Carousel({ products, className }: CarouselProps) {
           nextEl: ".swiper-button-next-custom",
           prevEl: ".swiper-button-prev-custom",
         }}
-        className="w-full max-w-7xl mx-auto !overflow-visible"
-        modules={[Autoplay, Navigation]}
+        pagination={{ 
+          clickable: true,
+          dynamicBullets: true
+        }}
+        className="w-full max-w-7xl mx-auto !overflow-visible pb-12"
+        modules={[Autoplay, Navigation, Pagination]}
       >
         {products.map((product) => (
           <SwiperSlide key={product.id} className="h-auto">
