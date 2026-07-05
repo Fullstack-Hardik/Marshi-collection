@@ -129,7 +129,7 @@ export default function Home() {
                 <div className="flex gap-1 text-[var(--accent-red)] mb-6">
                   {[1,2,3,4,5].map(star => <Star key={star} size={20} fill="currentColor" />)}
                 </div>
-                <p className="font-satoshi text-lg opacity-90 mb-8 leading-relaxed italic">"{review.text}"</p>
+                <p className="font-satoshi text-lg opacity-90 mb-8 leading-relaxed italic">&quot;{review.text}&quot;</p>
                 <div className="flex items-center gap-4 mt-auto">
                   <div className="w-12 h-12 rounded-full bg-[var(--accent-red)] flex items-center justify-center text-white font-bold font-clash text-xl">
                     {review.name.charAt(0)}
