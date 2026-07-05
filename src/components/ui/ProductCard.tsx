@@ -31,27 +31,27 @@ export function ProductCard({ product }: { product: Product }) {
         onClick={() => setIsOpen(true)}
         className="group cursor-pointer relative overflow-hidden rounded-2xl bg-[var(--bg-base)] border border-[var(--text-primary)]/10 hover:border-[var(--accent-red)] transition-all duration-300 flex flex-col shadow-sm hover:shadow-lg"
       >
-        <div className="relative aspect-[1/1] sm:aspect-[4/3] w-full overflow-hidden bg-white flex items-center justify-center p-2 sm:p-4">
+        <div className="relative aspect-[4/5] w-full overflow-hidden bg-[var(--text-primary)]/5">
           <Image
             src={product.image}
             alt={`${product.name} - ${product.category} at Marshi Collection`}
             fill
-            className="object-contain p-2 sm:p-4 transition-transform duration-700 group-hover:scale-105"
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between items-center text-center">
-          <div className="flex flex-col items-center">
-            <div className="inline-block px-2 py-1 sm:px-3 sm:py-1 bg-[var(--accent-red)]/10 text-[var(--accent-red)] text-[10px] sm:text-xs uppercase tracking-widest font-bold rounded-md mb-2 sm:mb-3 border border-[var(--accent-red)]/20">
+        <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div className="inline-block px-3 py-1.5 bg-[var(--accent-red)]/10 text-[var(--accent-red)] text-[11px] sm:text-xs uppercase tracking-widest font-bold rounded-md mb-3 border border-[var(--accent-red)]/20">
               {product.category}
             </div>
-            <h3 className="font-clash text-sm sm:text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-1 sm:mb-2 line-clamp-2 leading-tight tracking-tight group-hover:text-[var(--accent-red)] transition-colors duration-300">
+            <h3 className="font-clash text-lg sm:text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-2 line-clamp-2 leading-tight tracking-tight group-hover:text-[var(--accent-red)] transition-colors duration-300">
               {product.name}
             </h3>
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mt-2 sm:mt-4 pt-2 sm:pt-4 border-t border-[var(--text-primary)]/10 w-full">
-            <span className="text-[10px] sm:text-sm font-medium text-[var(--text-primary)]/60">Price:</span>
-            <span className="text-base sm:text-2xl font-clash font-extrabold text-[var(--text-primary)]">PKR {product.price}</span>
+          <div className="flex items-center gap-2 mt-4 pt-4 border-t border-[var(--text-primary)]/10">
+            <span className="text-xs sm:text-sm font-medium text-[var(--text-primary)]/60">Price:</span>
+            <span className="text-lg sm:text-2xl font-clash font-extrabold text-[var(--text-primary)]">PKR {product.price}</span>
           </div>
         </div>
       </div>

@@ -29,13 +29,13 @@ export default function ProductsPage() {
       </h1>
       
       {/* Category Navigation (Sticky) */}
-      <div className="sticky top-20 z-40 bg-[var(--bg-base)]/90 backdrop-blur-md py-4 mb-16 border-b border-[var(--text-primary)]/10 overflow-x-auto whitespace-nowrap hide-scrollbar">
-        <div className="flex gap-4 md:justify-center px-4">
+      <div className="sticky top-20 z-40 bg-[var(--bg-base)]/90 backdrop-blur-md py-4 mb-16 border-b border-[var(--text-primary)]/10">
+        <div className="flex flex-wrap gap-2 sm:gap-4 justify-center px-4">
           {CATEGORIES.map((cat) => (
             <a 
               key={cat} 
               href={`#${cat.toLowerCase().replace(/\s+/g, '-')}`}
-              className="px-6 py-2 rounded-full border border-[var(--text-primary)]/20 hover:border-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-base)] transition-all font-satoshi font-medium text-sm uppercase tracking-wider"
+              className="px-4 py-1.5 sm:px-6 sm:py-2 rounded-full border border-[var(--text-primary)]/20 hover:border-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-base)] transition-all font-satoshi font-medium text-xs sm:text-sm uppercase tracking-wider"
             >
               {cat}
             </a>
@@ -67,7 +67,7 @@ export default function ProductsPage() {
               </div>
 
               {categoryProducts.length > 0 ? (
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 px-2 sm:px-0">
                   {categoryProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
