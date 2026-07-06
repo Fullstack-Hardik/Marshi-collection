@@ -75,14 +75,10 @@ export default function ProductsPage() {
               id={category.slug}
               className="scroll-mt-40"
             >
-              <div className="flex items-center gap-4 mb-12">
-                <h2 className="text-3xl md:text-4xl font-clash font-bold uppercase tracking-wide">
+              <div className="w-full border-2 border-[var(--text-primary)]/10 rounded-2xl py-3 sm:py-5 mb-8 flex justify-center items-center shadow-sm">
+                <h2 className="text-base sm:text-xl font-satoshi font-bold uppercase tracking-[0.2em] text-[var(--text-primary)]">
                   {category.label}
                 </h2>
-                <div className="h-[1px] flex-grow bg-[var(--text-primary)]/20"></div>
-                <span className="font-satoshi text-[var(--text-primary)]/60 text-sm">
-                  {categoryProducts.length} Items
-                </span>
               </div>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6 lg:gap-8 px-2 sm:px-0">
