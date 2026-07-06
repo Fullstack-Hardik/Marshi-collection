@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,400&f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet" />
       </head>
-      <body className="antialiased min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-primary)] selection:bg-[var(--accent-red)] selection:text-white">
+      <body className="antialiased min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-primary)] selection:bg-[var(--accent-red)] selection:text-white overflow-x-hidden w-full">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
