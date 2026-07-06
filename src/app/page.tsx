@@ -66,18 +66,14 @@ export default function Home() {
       />
 
       {/* Contact Banner */}
-      <div className="w-full flex justify-center pt-[90px] px-4 z-40 animate-slide-up relative">
-        <a href="https://wa.me/923108736356" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[var(--accent-red)] to-pink-600 text-white px-6 py-2.5 rounded-full font-satoshi text-sm md:text-base font-bold tracking-wide shadow-[0_0_20px_rgba(255,0,0,0.3)] flex items-center gap-2 hover:scale-105 transition-transform border border-white/20">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-          </span>
-          Contact Me - +92-310-8736356
+      <div className="w-full pt-[80px] z-40 animate-slide-up relative">
+        <a href="https://wa.me/923108736356" target="_blank" rel="noopener noreferrer" className="block w-full bg-black text-white text-center py-2 font-satoshi text-xs sm:text-sm font-bold tracking-[0.2em] uppercase hover:bg-zinc-900 transition-colors">
+          Contact Me: +92-310-8736356
         </a>
       </div>
 
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100vh-90px)] pt-8 pb-16 w-full flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 overflow-hidden animate-slide-up">
+      <section className="relative min-h-[calc(100vh-80px)] pt-6 pb-16 w-full flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 overflow-hidden animate-slide-up">
         <GradientBlobs />
         
         <div className="relative z-10 w-full lg:w-1/2 flex flex-col items-start pt-12 lg:pt-0">
