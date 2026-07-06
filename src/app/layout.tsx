@@ -11,7 +11,7 @@ import { Footer } from "@/components/raw-form/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://marshicollection.vercel.app"),
   title: {
-    default: "Marshi Collection | Premium Fashion, Gifts & Abayas Pakistan",
+    default: "Marshi collection premium fashion | pakistan",
     template: "%s | Marshi Collection",
   },
   description: "Shop premium Ladies Dresses, Gents Wear, Kids Clothing, Custom Gifts, and Abayas online in Pakistan at Marshi Collection. Quality fashion with nationwide delivery.",
