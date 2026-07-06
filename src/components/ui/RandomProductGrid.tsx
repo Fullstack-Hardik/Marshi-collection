@@ -15,7 +15,7 @@ export function RandomProductGrid({ products }: { products: Product[] }) {
   // Prevent hydration mismatch by showing a skeleton or default grid initially
   if (displayProducts.length === 0) {
     return (
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 px-2 sm:px-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-0">
         {products.slice(0, 4).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
@@ -24,7 +24,7 @@ export function RandomProductGrid({ products }: { products: Product[] }) {
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 px-2 sm:px-0">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-0">
       {displayProducts.map((product) => (
         <div key={product.id} className="animate-in fade-in slide-in-from-bottom-4 duration-700">
           <ProductCard product={product} />
