@@ -4,40 +4,60 @@ import { products } from '@/data/products';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://marshicollection.vercel.app';
   
-  const staticRoutes = [
+  // Base static routes
+  const routes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: `${baseUrl}`,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 1,
+      changeFrequency: 'daily',
+      priority: 1.0,
     },
     {
-      url: `${baseUrl}/products`,
+      url: `${baseUrl}/categories`, // assuming category listing exists or is part of main navigation
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/products/gents`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/products/ladies`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
+    {
+      url: `${baseUrl}/products/kids`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/products/jewelry`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/products/gifts`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }
   ];
 
-  const uniqueCategories = Array.from(new Set(products.map(p => p.category)));
-  const categoryRoutes = uniqueCategories.map(category => ({
-    url: `${baseUrl}/products/${category}`,
+  // Dynamically add products based on categories (assuming you have a category view handling hashes or routes)
+  // Even if products are shown via modal, having the URL points them to the category with hash or dynamic route.
+  const productRoutes = products.map((product) => ({
+    url: `${baseUrl}/products/${product.category}#${product.id}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: 0.7,
+    priority: 0.6,
   }));
 
-  return [...staticRoutes, ...categoryRoutes];
+  return [...routes, ...productRoutes];
 }

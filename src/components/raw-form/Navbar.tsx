@@ -43,12 +43,13 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <button className="hover:text-[var(--accent-red)] transition-colors p-2 hover:bg-[var(--text-primary)]/5 rounded-full">
+          <button aria-label="Search" className="hover:text-[var(--accent-red)] transition-colors p-2 hover:bg-[var(--text-primary)]/5 rounded-full">
             <Search size={22} strokeWidth={1.5} />
           </button>
           
           {/* Menu Toggle */}
           <button 
+            aria-label="Open menu"
             className="hover:text-[var(--accent-red)] transition-colors p-2 hover:bg-[var(--text-primary)]/5 rounded-full"
             onClick={() => setIsSidebarOpen(true)}
           >
@@ -71,6 +72,7 @@ export function Navbar() {
             <div className="flex justify-between items-center mb-12">
               <span className="font-clash font-bold uppercase text-2xl text-white tracking-tighter">Menu</span>
               <button 
+                aria-label="Close menu"
                 onClick={() => setIsSidebarOpen(false)}
                 className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-white transition-colors"
               >

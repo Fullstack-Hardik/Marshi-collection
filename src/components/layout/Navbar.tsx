@@ -55,6 +55,7 @@ export function Navbar() {
 
           <div className="md:hidden flex items-center">
             <button
+              aria-label="Toggle mobile menu"
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white p-2"
             >

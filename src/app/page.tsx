@@ -16,17 +16,52 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Marshi Collection",
-            "url": "https://marshicollection.vercel.app",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://marshicollection.vercel.app/products?search={search_term_string}",
-              "query-input": "required name=search_term_string"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Marshi Collection",
+              "url": "https://marshicollection.vercel.app",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://marshicollection.vercel.app/products?search={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Marshi Collection",
+              "image": "https://marshicollection.vercel.app/logo.png",
+              "@id": "https://marshicollection.vercel.app",
+              "url": "https://marshicollection.vercel.app",
+              "telephone": "+923108736356",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Karachi",
+                "addressCountry": "PK"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 24.8607,
+                "longitude": 67.0011
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "09:00",
+                "closes": "22:00"
+              }
             }
-          })
+          ])
         }}
       />
 

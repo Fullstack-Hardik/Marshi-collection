@@ -33,28 +33,47 @@ const optimizeImages = async () => {
     return;
   }
 
-  const images = getAllFiles(IMAGES_DIR, '', null, null, /\.(jpg|jpeg|png)$/i);
+  // Scan all standard image formats
+  const images = getAllFiles(IMAGES_DIR, '', null, null, /\.(jpg|jpeg|png|webp)$/i);
   console.log(`Found ${images.length} images to process.`);
 
   let processedCount = 0;
 
   for (const imagePath of images) {
     const ext = path.extname(imagePath);
-    const base = path.basename(imagePath, ext);
+    let base = path.basename(imagePath, ext);
     const dir = path.dirname(imagePath);
-    const newFileName = `${base.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.webp`;
+    
+    // Make SEO friendly - remove special characters, lowercase, replace spaces with hyphens
+    // Adding "marshi-collection" to the end if not already present for branding
+    let seoBase = base.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    if (!seoBase.includes('marshi-collection') && dir.includes('products')) {
+        seoBase = `${seoBase}-marshi-collection`;
+    }
+
+    const newFileName = `${seoBase}.webp`;
     const newFilePath = path.join(dir, newFileName);
 
+    if (imagePath === newFilePath) {
+      console.log(`Skipping (already optimized and correct format): ${newFileName}`);
+      continue;
+    }
+
     if (fs.existsSync(newFilePath)) {
-      console.log(`Skipping (already optimized): ${newFileName}`);
+      console.log(`Skipping (already exists): ${newFileName}`);
       continue;
     }
 
     try {
-      console.log(`Optimizing: ${imagePath} -> ${newFileName}`);
+      console.log(`Optimizing: ${path.basename(imagePath)} -> ${newFileName}`);
+      // Read dimensions and convert to WebP
+      const metadata = await sharp(imagePath).metadata();
+      
       await sharp(imagePath)
-        .webp({ quality: 80 })
+        .webp({ quality: 80, effort: 6 }) // high effort for better compression
         .toFile(newFilePath);
+        
+      console.log(`  -> Dimensions: ${metadata.width}x${metadata.height}`);
       processedCount++;
     } catch (err) {
       console.error(`Error processing ${imagePath}:`, err);
