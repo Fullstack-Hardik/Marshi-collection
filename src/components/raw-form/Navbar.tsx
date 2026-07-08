@@ -62,7 +62,8 @@ export function Navbar() {
       {isSidebarOpen && (
         <div className="fixed inset-0 z-[60] flex">
           {/* Backdrop */}
-          <div 
+          <button 
+            aria-label="Close menu"
             className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" 
             onClick={() => setIsSidebarOpen(false)}
           />

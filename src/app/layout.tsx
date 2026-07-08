@@ -16,9 +16,11 @@ export const metadata: Metadata = {
   },
   description: "Shop premium Ladies Dresses, Gents Wear, Kids Clothing, Custom Gifts, and Abayas online in Pakistan at Marshi Collection. Quality fashion with nationwide delivery.",
   keywords: [
-    "Pakistani dresses online", "buy gifts online Pakistan", "custom clothing", 
-    "custom gifts Pakistan", "kids clothing brand Pakistan", "ladies suits online shopping", 
-    "Marshi Collection", "premium fashion Pakistan", "Abaya online Pakistan", 
+    "marshi collection", "marshi connection website", "pakistan marshi", 
+    "marshi", "marshi colection pakistan", "Pakistani dresses online", 
+    "buy gifts online Pakistan", "custom clothing", "custom gifts Pakistan", 
+    "kids clothing brand Pakistan", "ladies suits online shopping", 
+    "premium fashion Pakistan", "Abaya online Pakistan", 
     "Hijab online shopping", "mens t-shirts online", "customized jewelry Pakistan",
     "cash on delivery fashion Pakistan", "buy clothes online Karachi", "Lahore fashion store"
   ],
