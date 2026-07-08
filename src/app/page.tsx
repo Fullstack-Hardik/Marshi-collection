@@ -68,7 +68,7 @@ export default function Home() {
       {/* Contact Banner */}
       <div className="w-full pt-[80px] z-40 animate-slide-up relative">
         <div className="w-full bg-[var(--accent-red)] text-white text-center py-2 font-satoshi text-xs sm:text-sm font-bold tracking-[0.1em] uppercase animate-pulse">
-          🎉 Special Offer: Order directly from this page to get an exclusive discount! 🎉
+          🎉 Special Offer: Order directly from WhatsApp to get an exclusive discount! 🎉
         </div>
         <a href="https://wa.me/923108736356" target="_blank" rel="noopener noreferrer" className="block w-full bg-black text-white text-center py-2 font-satoshi text-xs sm:text-sm font-bold tracking-[0.2em] uppercase hover:bg-zinc-900 transition-colors">
           Contact Me: +92-310-8736356
