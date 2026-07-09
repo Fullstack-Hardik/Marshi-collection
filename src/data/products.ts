@@ -580,5 +580,21 @@ export const products: Product[] = [
     price: "800",
     image: "/images/products/leather-watch-brown-text-marshi-collection.webp",
     details: "Plain Belt Picture Watch. Brown color belt with rose gold rim variant. Price: 800/-",
+  },
+  {
+    id: "p74",
+    name: "14 August Kids Picture & Name T-shirts (Collection 1)",
+    category: "kids",
+    price: "550",
+    image: "/images/products/14-aug-kids-collection-1.webp",
+    details: "14 August's Pakistan independence day Kids Picture & Name T-shirts. Fabric: Polyester. Size Measurement: Extra Small (0-1 Yrs) L14, Small (1-2 Yrs) L16, Medium (3-4 Yrs) L18, Large (5-6 Yrs) L20, XLarge (7-8 Yrs) L22, XXLarge (9-10 Yrs) L24. Price: 550/- Each. Also Adult Size Available: Medium, Large, Xlarge at 650/-."
+  },
+  {
+    id: "p75",
+    name: "14 August Kids Picture & Name T-shirts (Collection 2)",
+    category: "kids",
+    price: "550",
+    image: "/images/products/14-aug-kids-collection-2.webp",
+    details: "14 August's Pakistan independence day Kids Picture & Name T-shirts. Fabric: Polyester. Size Measurement: Extra Small (0-1 Yrs) L14, Small (1-2 Yrs) L16, Medium (3-4 Yrs) L18, Large (5-6 Yrs) L20, XLarge (7-8 Yrs) L22, XXLarge (9-10 Yrs) L24. Price: 550/- Each. Also Adult Size Available: Medium, Large, Xlarge at 650/-."
   }
 ];
