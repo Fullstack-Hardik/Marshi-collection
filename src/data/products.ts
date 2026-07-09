@@ -12,7 +12,7 @@ export const products: Product[] = [
     id: "p1",
     name: "White Heart Tee & Cap (Salman)",
     category: "gents",
-    price: "1050",
+    price: "1100",
     image: "/images/products/white-heart-salman.webp",
   },
   {
