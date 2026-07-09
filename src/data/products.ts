@@ -19,7 +19,7 @@ export const products: Product[] = [
     id: "p2",
     name: "Yellow Heart Tee & Cap (Salman)",
     category: "gents",
-    price: "1050",
+    price: "1100",
     image: "/images/products/yellow-heart-salman.webp",
     
   },
